@@ -12,10 +12,12 @@ namespace The_Library_Of_Babel
 		private string lastName;
 		private string phoneNumber;
 		private string emailAddress;
+        private LibraryCard libraryCard;
         private bool canTakeBooks;
         private List<Book> takenBooks;
-        
+        private List<Book> takenBooksArchive;
 
+        
         public string FirstName
 		{
 			get { return firstName; }
@@ -39,6 +41,13 @@ namespace The_Library_Of_Babel
             get { return emailAddress; }
             set { emailAddress = value; }
         }
+
+        public LibraryCard LibraryCard
+        {
+            get { return libraryCard; }
+            set { libraryCard = value; }
+        }
+
         public bool CanTakeBooks
         {
             get { return canTakeBooks; }
@@ -51,9 +60,28 @@ namespace The_Library_Of_Babel
             set { takenBooks = value; }
         }
 
+        public List<Book> TakenBooksArchive
+        {
+            get { return takenBooksArchive; }
+            set { takenBooksArchive = value; }
+        }
+
+
+        public Reader(string firstName, string lastName, string emailAddress, LibraryCard lc, List<Book> takenb, List<Book> takenbArch) 
+        { 
+            FirstName = firstName;
+            LastName = lastName;
+            EmailAddress = emailAddress;
+            LibraryCard = lc;
+            CanTakeBooks = true;
+            TakenBooks = takenb;
+            TakenBooksArchive = takenbArch;
+        }
+
         public void TakeBook(Book book)
         {
             takenBooks.Add(book);
+            takenBooksArchive.Add(book);
             book.IsTaken = true;
         }
 
