@@ -13,9 +13,10 @@ namespace The_Library_Of_Babel
 		private List<Author> authors;
 		private string publisher;
 		private int yearOfPublishing;
-		
-		
-		public string Title
+        private bool isTaken;
+
+        
+        public string Title
 		{
 			get { return title; }
 			set { title = value; }
@@ -43,6 +44,12 @@ namespace The_Library_Of_Babel
         {
             get { return yearOfPublishing; }
             set { yearOfPublishing = value; }
+        }
+
+        public bool IsTaken
+        {
+            get { return isTaken; }
+            set { isTaken = value; }
         }
     }
 }

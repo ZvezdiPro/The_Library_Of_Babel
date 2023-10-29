@@ -12,14 +12,10 @@ namespace The_Library_Of_Babel
 		private string lastName;
 		private string phoneNumber;
 		private string emailAddress;
+        private bool canTakeBooks;
 
-		
-
-
-		
-
-
-		public string FirstName
+        
+        public string FirstName
 		{
 			get { return firstName; }
 			set { firstName = value; }
@@ -41,6 +37,11 @@ namespace The_Library_Of_Babel
         {
             get { return emailAddress; }
             set { emailAddress = value; }
+        }
+        public bool CanTakeBooks
+        {
+            get { return canTakeBooks; }
+            set { canTakeBooks = value; }
         }
     }
 }

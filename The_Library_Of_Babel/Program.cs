@@ -6,7 +6,7 @@ namespace The_Library_Of_Babel
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
