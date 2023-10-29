@@ -13,7 +13,6 @@ namespace The_Library_Of_Babel
 		private string phoneNumber;
 		private string emailAddress;
         private LibraryCard libraryCard;
-        private bool canTakeBooks;
         private List<Book> takenBooks;
         private List<Book> takenBooksArchive;
 
@@ -48,12 +47,6 @@ namespace The_Library_Of_Babel
             set { libraryCard = value; }
         }
 
-        public bool CanTakeBooks
-        {
-            get { return canTakeBooks; }
-            set { canTakeBooks = value; }
-        }
-
         public List<Book> TakenBooks
         {
             get { return takenBooks; }
@@ -73,16 +66,22 @@ namespace The_Library_Of_Babel
             LastName = lastName;
             EmailAddress = emailAddress;
             LibraryCard = lc;
-            CanTakeBooks = true;
             TakenBooks = takenb;
             TakenBooksArchive = takenbArch;
         }
 
         public void TakeBook(Book book)
         {
-            takenBooks.Add(book);
-            takenBooksArchive.Add(book);
-            book.IsTaken = true;
+            if (takenBooks.Count < 3)
+            {
+                takenBooks.Add(book);
+                takenBooksArchive.Add(book);
+                book.IsTaken = true;
+            }
+            else
+            {
+                Console.WriteLine("The reader cannot take any more books");
+            }
         }
 
         public void Return(Book book)
