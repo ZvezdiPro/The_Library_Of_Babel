@@ -43,5 +43,18 @@ namespace The_Library_Of_Babel
             get { return description; }
             set { description = value; }
         }
+
+        public Author(string firstName, string lastName) 
+        { 
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public Author(string firstName, string middleName, string lastName)
+        { 
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+        }
     }
 }

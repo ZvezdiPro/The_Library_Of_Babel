@@ -51,5 +51,15 @@ namespace The_Library_Of_Babel
             get { return isTaken; }
             set { isTaken = value; }
         }
+
+        public Book(string title, string genre, List<Author> authors, string publisher, int yearOfPublishing, bool isTaken)
+        {
+            Title = title;
+            Genre = genre;
+            Authors = authors;
+            Publisher = publisher;
+            YearOfPublishing = yearOfPublishing;
+            IsTaken = isTaken;
+        }
     }
 }
