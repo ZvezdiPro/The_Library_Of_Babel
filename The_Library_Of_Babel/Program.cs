@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace The_Library_Of_Babel
 {
@@ -63,15 +62,15 @@ namespace The_Library_Of_Babel
         public static Book AddBook()
         {
             Console.WriteLine("Adding a new book:");
-            Console.WriteLine("  Name of the book: ");
+            Console.Write("  Name of the book: ");
             string name = Console.ReadLine();
-            Console.WriteLine("  Genre of the book: ");
+            Console.Write("  Genre of the book: ");
             string genre = Console.ReadLine();
-            Console.WriteLine("  Author(s) of the book (At least two names): ");
+            Console.Write("  Author(s) of the book (At least two names): ");
             string[] authorsNames = Console.ReadLine().Split(", ");
-            Console.WriteLine("  Publisher of the book: ");
+            Console.Write("  Publisher of the book: ");
             string publisher = Console.ReadLine();
-            Console.WriteLine("  Year of publishing of the book: ");
+            Console.Write("  Year of publishing of the book: ");
             int publishingYear = int.Parse(Console.ReadLine());
 
             List<Author> authorList = new List<Author>();
