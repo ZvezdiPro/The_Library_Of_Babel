@@ -64,7 +64,7 @@ namespace The_Library_Of_Babel
                     Console.WriteLine("New reader added successfully!");
                     break;
                 case 3:
-                    Console.WriteLine("Command syntax: [Reader], [Book]");
+                    Console.Write("Command syntax: [Reader], [Book]: ");
                     command = Console.ReadLine().Split(' ');
                     foreach (Reader reader in readers)
                     {
@@ -83,7 +83,7 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 case 4:
-                    Console.WriteLine("Command syntax: [Reader], [Book]");
+                    Console.Write("Command syntax: [Reader], [Book]: ");
                     command = Console.ReadLine().Split(' ');
                     foreach (Reader reader in readers)
                     {
@@ -114,13 +114,14 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 default:
-                    Console.WriteLine("Please enter a valid command number");
+                    Console.WriteLine("Please enter a valid command number!");
                     break;
             }
 
+            /*
             Console.Write("\nEnter the code of your command: ");
             n = int.Parse(Console.ReadLine());
-            goto executeCommand;
+            goto executeCommand; */
         }
 
         public static Book AddBook()

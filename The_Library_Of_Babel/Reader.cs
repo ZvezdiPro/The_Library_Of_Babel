@@ -76,11 +76,12 @@ namespace The_Library_Of_Babel
             {
                 takenBooks.Add(book);
                 takenBooksArchive.Add(book);
+                Console.WriteLine($"{firstName} {lastName} took {book.Title}!");
                 book.IsTaken = true;
             }
             else
             {
-                Console.WriteLine("The reader cannot take any more books");
+                Console.WriteLine("The reader cannot take any more books!");
             }
         }
 
@@ -89,11 +90,12 @@ namespace The_Library_Of_Babel
             if (takenBooks.Contains(book))
             {
                 takenBooks.Remove(book);
+                Console.WriteLine($"{firstName} {lastName} returned {book.Title}!");
                 book.IsTaken = false;
             }
             else
             {
-                Console.WriteLine("This book is not in the reader");
+                Console.WriteLine("This book is not in the reader!");
             }
         }
     }
