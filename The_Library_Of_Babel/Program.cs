@@ -65,10 +65,10 @@ namespace The_Library_Of_Babel
                     break;
                 case 3:
                     Console.Write("Command syntax: [Reader], [Book]: ");
-                    command = Console.ReadLine().Split(' ');
+                    command = Console.ReadLine().Split(", ");
                     foreach (Reader reader in readers)
                     {
-                        if (reader.FirstName == command[0])
+                        if (reader.FirstName.ToLower() == command[0].ToLower())
                         {
                             foreach (Book bookToTake in books)
                             {
@@ -84,9 +84,10 @@ namespace The_Library_Of_Babel
                     break;
                 case 4:
                     Console.Write("Command syntax: [Reader], [Book]: ");
-                    command = Console.ReadLine().Split(' ');
+                    command = Console.ReadLine().Split(", ");
                     foreach (Reader reader in readers)
                     {
+                        // Only checks for the first name...
                         if (reader.FirstName == command[0])
                         {
                             foreach (Book bookToReturn in books)
@@ -117,11 +118,10 @@ namespace The_Library_Of_Babel
                     Console.WriteLine("Please enter a valid command number!");
                     break;
             }
-
-            /*
+            
             Console.Write("\nEnter the code of your command: ");
             n = int.Parse(Console.ReadLine());
-            goto executeCommand; */
+            goto executeCommand;
         }
 
         public static Book AddBook()
