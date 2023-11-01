@@ -45,8 +45,22 @@ namespace The_Library_Of_Babel
                     
                     break;
                 case 3:
-                    Console.WriteLine("Command syntax: [Reader] takes [Book]");
+                    Console.WriteLine("Command syntax: [Reader], [Book]");
                     string[] command = Console.ReadLine().Split(' ');
+                    foreach (Reader reader in readers)
+                    {
+                        if (reader.FirstName == command[0])
+                        {
+                            foreach (Book bookToTake in books)
+                            {
+                                if (bookToTake.Title == command[1])
+                                {
+                                    reader.TakeBook(bookToTake);
+                                    break;
+                                }
+                            }
+                        }
+                    }
                     break;
                 case 4:
                     Console.WriteLine("Enter the name of the book: ");
