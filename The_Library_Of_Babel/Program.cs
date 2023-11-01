@@ -24,9 +24,9 @@ namespace The_Library_Of_Babel
 
             Random rng = new Random();
             
-            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 10, 1)), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 6, 15)), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 8, 12)), new List<Book>(), new List<Book>()));
 
             Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL\n");
             Console.WriteLine("List of commands:");
@@ -111,6 +111,7 @@ namespace The_Library_Of_Babel
             Book book = new Book(title, genre, authorList, publisher, publishingYear, false);
             return book;
         }
+
         private static Reader AddReader()
         {
             Console.WriteLine("Adding a new reader:");
@@ -121,9 +122,8 @@ namespace The_Library_Of_Babel
             Console.Write("  Email of the reader: ");
             string email = Console.ReadLine();
 
-            // RNG and DateTime for the LibraryCard need to be implemented
             Random rng = new Random();
-            Reader newReader = new Reader(firstName, lastName, email, new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>());
+            Reader newReader = new Reader(firstName, lastName, email, new LibraryCard(rng.Next(1000000000, int.MaxValue), DateTime.Today), new List<Book>(), new List<Book>());
             return newReader;
         }
     }
