@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Transactions;
 
 namespace The_Library_Of_Babel
 {
@@ -31,6 +33,7 @@ namespace The_Library_Of_Babel
             Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL\n");
             Console.WriteLine("List of commands:");
 
+            Console.WriteLine("[0] Exit");
             Console.WriteLine("[1] Add a book");
             Console.WriteLine("[2] Add a reader");
             Console.WriteLine("[3] Take a book");
@@ -41,15 +44,21 @@ namespace The_Library_Of_Babel
 
             int n = int.Parse(Console.ReadLine());
 
+            executeCommand:
             switch(n) 
             { 
+                case 0:
+                    Environment.Exit(0);
+                    break;
                 case 1:
                     Book newBook = AddBook();
                     books.Add(newBook);
+                    Console.WriteLine("New book added successfully!");
                     break;
                 case 2:
                     Reader newReader = AddReader();
                     readers.Add(newReader);
+                    Console.WriteLine("New reader added successfully!");
                     break;
                 case 3:
                     Console.WriteLine("Command syntax: [Reader], [Book]");
@@ -75,7 +84,7 @@ namespace The_Library_Of_Babel
                     string bookTitle = Console.ReadLine();
                     foreach (Book book in books)
                     {
-                        if (book.Title == bookTitle)
+                        if (book.Title.ToLower() == bookTitle.ToLower())
                         {
                             Console.WriteLine(book);
                             break;
@@ -86,6 +95,10 @@ namespace The_Library_Of_Babel
                     Console.WriteLine("Please enter a valid command number");
                     break;
             }
+
+            Console.Write("\nEnter the code of your command: ");
+            n = int.Parse(Console.ReadLine());
+            goto executeCommand;
         }
 
         public static Book AddBook()

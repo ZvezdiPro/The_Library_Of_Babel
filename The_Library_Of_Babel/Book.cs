@@ -69,7 +69,7 @@ namespace The_Library_Of_Babel
             {
                 output = string.Concat(output, $"{author.FirstName} {author.LastName}");
             }
-            output = string.Concat(output, publisher, yearOfPublishing);
+            output = string.Concat(output, $" {publisher} {yearOfPublishing}");
             return output;
         }
     }
