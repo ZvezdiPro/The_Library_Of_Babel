@@ -22,5 +22,11 @@ namespace The_Library_Of_Babel
             get { return expiryDate; }
             set { expiryDate = value; }
         }
+
+        public LibraryCard(int number, DateTime expirydate)
+        {
+            Number = number;
+            ExpiryDate = expirydate;
+        }
     }
 }

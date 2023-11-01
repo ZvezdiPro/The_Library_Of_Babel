@@ -22,9 +22,9 @@ namespace The_Library_Of_Babel
             books.Add(new Book("Harry Potter and the Deathly Hallows", "fantasy", new List<Author>(), "Bloomsbury", 2007, false));
             books.Add(new Book("The Art of War", "strategy", new List<Author>(), "Arcturus Publishing", 2014, false));
 
-            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(1, new DateTime()), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(2, new DateTime()), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(3, new DateTime()), new List<Book>(), new List<Book>()));
 
             Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL\n");
             Console.WriteLine("List of commands:");
@@ -45,8 +45,9 @@ namespace The_Library_Of_Babel
                     Book newBook = AddBook();
                     books.Add(newBook);
                     break;
-                case 2: 
-                    
+                case 2:
+                    Reader newReader = AddReader();
+                    readers.Add(newReader);
                     break;
                 case 3:
                     Console.WriteLine("Command syntax: [Reader], [Book]");
@@ -81,8 +82,8 @@ namespace The_Library_Of_Babel
         public static Book AddBook()
         {
             Console.WriteLine("Adding a new book:");
-            Console.Write("  Name of the book: ");
-            string name = Console.ReadLine();
+            Console.Write("  Title of the book: ");
+            string title = Console.ReadLine();
             Console.Write("  Genre of the book: ");
             string genre = Console.ReadLine();
             Console.Write("  Author(s) of the book (At least two names): ");
@@ -105,8 +106,22 @@ namespace The_Library_Of_Babel
                 authorList.Add(bookAuthor);
             }
 
-            Book book = new Book(name, genre, authorList, publisher, publishingYear, false);
+            Book book = new Book(title, genre, authorList, publisher, publishingYear, false);
             return book;
+        }
+        private static Reader AddReader()
+        {
+            Console.WriteLine("Adding a new reader:");
+            Console.Write("  First name of the reader: ");
+            string firstName = Console.ReadLine();
+            Console.Write("  Last name of the reader: ");
+            string lastName = Console.ReadLine();
+            Console.Write("  Email of the reader: ");
+            string email = Console.ReadLine();
+
+            // RNG and DateTime for the LibraryCard need to be implemented
+            Reader newReader = new Reader(firstName, lastName, email, new LibraryCard(326989238, new DateTime()), new List<Book>(), new List<Book>());
+            return newReader;
         }
     }
 }
