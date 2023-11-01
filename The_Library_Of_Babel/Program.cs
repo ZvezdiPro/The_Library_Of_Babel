@@ -72,7 +72,7 @@ namespace The_Library_Of_Babel
                         {
                             foreach (Book bookToTake in books)
                             {
-                                if (bookToTake.Title == command[1])
+                                if (bookToTake.Title.ToLower() == command[1].ToLower())
                                 {
                                     reader.TakeBook(bookToTake);
                                     break;
@@ -91,7 +91,7 @@ namespace The_Library_Of_Babel
                         {
                             foreach (Book bookToReturn in books)
                             {
-                                if (bookToReturn.Title == command[1])
+                                if (bookToReturn.Title.ToLower() == command[1].ToLower())
                                 {
                                     reader.Return(bookToReturn);
                                     break;
