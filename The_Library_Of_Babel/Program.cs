@@ -71,9 +71,16 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 case 4:
-                    Console.WriteLine("Enter the name of the book: ");
-                    string book = Console.ReadLine();
-
+                    Console.Write("Enter the title of the book: ");
+                    string bookTitle = Console.ReadLine();
+                    foreach (Book book in books)
+                    {
+                        if (book.Title == bookTitle)
+                        {
+                            Console.WriteLine(book);
+                            break;
+                        }
+                    }
                     break;
                 default:
                     Console.WriteLine("Please enter a valid command number");
