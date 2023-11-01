@@ -37,12 +37,15 @@ namespace The_Library_Of_Babel
             Console.WriteLine("[1] Add a book");
             Console.WriteLine("[2] Add a reader");
             Console.WriteLine("[3] Take a book");
-            Console.WriteLine("[4] Display a book's archive");
-            Console.WriteLine("[5] Display a reader's archive\n");
+            Console.WriteLine("[4] Return a book");
+            Console.WriteLine("[5] Display a book's archive");
+            Console.WriteLine("[6] Display a reader's archive\n");
 
             Console.Write("Enter the code of your command: ");
 
             int n = int.Parse(Console.ReadLine());
+
+            string[] command;
 
             executeCommand:
             switch(n) 
@@ -62,7 +65,7 @@ namespace The_Library_Of_Babel
                     break;
                 case 3:
                     Console.WriteLine("Command syntax: [Reader], [Book]");
-                    string[] command = Console.ReadLine().Split(' ');
+                    command = Console.ReadLine().Split(' ');
                     foreach (Reader reader in readers)
                     {
                         if (reader.FirstName == command[0])
@@ -80,6 +83,25 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 case 4:
+                    Console.WriteLine("Command syntax: [Reader], [Book]");
+                    command = Console.ReadLine().Split(' ');
+                    foreach (Reader reader in readers)
+                    {
+                        if (reader.FirstName == command[0])
+                        {
+                            foreach (Book bookToReturn in books)
+                            {
+                                if (bookToReturn.Title == command[1])
+                                {
+                                    reader.Return(bookToReturn);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    break;
+                case 5:
                     Console.Write("Enter the title of the book: ");
                     string bookTitle = Console.ReadLine();
                     foreach (Book book in books)
