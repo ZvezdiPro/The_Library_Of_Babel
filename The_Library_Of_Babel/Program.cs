@@ -22,9 +22,11 @@ namespace The_Library_Of_Babel
             books.Add(new Book("Harry Potter and the Deathly Hallows", "fantasy", new List<Author>(), "Bloomsbury", 2007, false));
             books.Add(new Book("The Art of War", "strategy", new List<Author>(), "Arcturus Publishing", 2014, false));
 
-            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(1, new DateTime()), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(2, new DateTime()), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(3, new DateTime()), new List<Book>(), new List<Book>()));
+            Random rng = new Random();
+            
+            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>()));
 
             Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL\n");
             Console.WriteLine("List of commands:");
@@ -120,7 +122,8 @@ namespace The_Library_Of_Babel
             string email = Console.ReadLine();
 
             // RNG and DateTime for the LibraryCard need to be implemented
-            Reader newReader = new Reader(firstName, lastName, email, new LibraryCard(326989238, new DateTime()), new List<Book>(), new List<Book>());
+            Random rng = new Random();
+            Reader newReader = new Reader(firstName, lastName, email, new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime()), new List<Book>(), new List<Book>());
             return newReader;
         }
     }
