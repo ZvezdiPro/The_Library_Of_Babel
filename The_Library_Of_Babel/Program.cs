@@ -114,6 +114,15 @@ namespace The_Library_Of_Babel
                         }
                     }
                     break;
+                case 6:
+                    Console.WriteLine("Enter the name of the reader: ");
+                    string readerName = Console.ReadLine();
+                    foreach (Reader reader in readers)
+                    {
+                        if (reader.FirstName == readerName)
+                        { Console.WriteLine(reader); break; }
+                    }
+                    break;
                 default:
                     Console.WriteLine("Please enter a valid command number!");
                     break;
