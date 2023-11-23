@@ -120,11 +120,11 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 case 6:
-                    Console.WriteLine("Enter the name of the reader: ");
+                    Console.Write("Enter the name of the reader: ");
                     string readerName = Console.ReadLine();
                     foreach (Reader reader in readers)
                     {
-                        if (reader.FirstName == readerName)
+                        if (string.Concat(reader.FirstName, " ", reader.LastName).ToLower() == readerName.ToLower())
                         { 
                             Console.WriteLine(reader); 
                             break; 
