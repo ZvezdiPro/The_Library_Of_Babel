@@ -26,11 +26,11 @@ namespace The_Library_Of_Babel
 
             Random rng = new Random();
             
-            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 10, 1)), new List<Book>(), new List<Book>()));
-            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 6, 15)), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Pavel", "Lyubomudrov", "pavel.lyubomudrov@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2024, 10, 1)), new List<Book>(), new List<Book>()));
+            readers.Add(new Reader("Aneliya", "Ivanova", "aneliya.ivanova@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2024, 6, 15)), new List<Book>(), new List<Book>()));
             readers.Add(new Reader("Olivia", "Williams", "olivia.williams@mudrost.now", new LibraryCard(rng.Next(1000000000, int.MaxValue), new DateTime(2023, 8, 12)), new List<Book>(), new List<Book>()));
 
-            Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL\n");
+            Console.WriteLine("WELCOME TO THE LIBRARY OF BABEL!\n");
             Console.WriteLine("List of commands:");
 
             Console.WriteLine("[0] Exit");
@@ -87,8 +87,7 @@ namespace The_Library_Of_Babel
                     command = Console.ReadLine().Split(", ");
                     foreach (Reader reader in readers)
                     {
-                        // Only checks for the first name...
-                        if (reader.FirstName == command[0])
+                        if (reader.FirstName.ToLower() == command[0].ToLower())
                         {
                             foreach (Book bookToReturn in books)
                             {
