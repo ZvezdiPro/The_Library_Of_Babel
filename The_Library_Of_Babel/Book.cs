@@ -64,13 +64,7 @@ namespace The_Library_Of_Babel
 
         public override string ToString()
         {
-            string output = $"{Title} {Genre}";
-            foreach (Author author in Authors) 
-            {
-                output = string.Concat(output, $"{author.FirstName} {author.LastName}");
-            }
-            output = string.Concat(output, $" {publisher} {yearOfPublishing}");
-            return output;
+            return $"{Title}, {Genre},{string.Concat(Authors.Select(author => $"{author.FirstName} {author.LastName}"))} {publisher}, {yearOfPublishing}";
         }
     }
 }
