@@ -120,7 +120,10 @@ namespace The_Library_Of_Babel
                     foreach (Reader reader in readers)
                     {
                         if (reader.FirstName == readerName)
-                        { Console.WriteLine(reader); break; }
+                        { 
+                            Console.WriteLine(reader); 
+                            break; 
+                        }
                     }
                     break;
                 default:
