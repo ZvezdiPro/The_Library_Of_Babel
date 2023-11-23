@@ -72,14 +72,22 @@ namespace The_Library_Of_Babel
 
         public void TakeBook(Book book)
         {
-            if (takenBooks.Count < 3)
+            if (takenBooks.Count < 3 && book.IsTaken == false && LibraryCard.ExpiryDate >= DateTime.Today)
             {
                 takenBooks.Add(book);
                 takenBooksArchive.Add(book);
                 Console.WriteLine($"{firstName} {lastName} took {book.Title}!");
                 book.IsTaken = true;
             }
-            else
+            else if (takenBooks.Count < 3 && book.IsTaken == false && LibraryCard.ExpiryDate < DateTime.Today)
+            {
+                Console.WriteLine("The reader's library card is no longer valid!");
+            }
+            else if (takenBooks.Count < 3 && book.IsTaken == true && LibraryCard.ExpiryDate > DateTime.Today)
+            {
+                Console.WriteLine("The book has been taken by another reader!");
+            }
+            else if (takenBooks.Count >= 3 && book.IsTaken == false && LibraryCard.ExpiryDate > DateTime.Today)
             {
                 Console.WriteLine("The reader cannot take any more books!");
             }
