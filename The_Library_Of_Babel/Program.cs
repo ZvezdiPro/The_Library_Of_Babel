@@ -64,18 +64,21 @@ namespace The_Library_Of_Babel
                     Console.WriteLine("New reader added successfully!");
                     break;
                 case 3:
-                    Console.Write("Command syntax: [Reader], [Book]: ");
+                    Console.Write("Command syntax: [Reader's first name], [Reader's last name], [Book]: ");
                     command = Console.ReadLine().Split(", ");
                     foreach (Reader reader in readers)
                     {
                         if (reader.FirstName.ToLower() == command[0].ToLower())
                         {
-                            foreach (Book bookToTake in books)
+                            if (reader.LastName.ToLower() == command[1].ToLower())
                             {
-                                if (bookToTake.Title.ToLower() == command[1].ToLower())
+                                foreach (Book bookToTake in books)
                                 {
-                                    reader.TakeBook(bookToTake);
-                                    break;
+                                    if (bookToTake.Title.ToLower() == command[2].ToLower())
+                                    {
+                                        reader.TakeBook(bookToTake);
+                                        break;
+                                    }
                                 }
                             }
                             break;
@@ -83,18 +86,21 @@ namespace The_Library_Of_Babel
                     }
                     break;
                 case 4:
-                    Console.Write("Command syntax: [Reader], [Book]: ");
+                    Console.Write("Command syntax: [Reader's first name], [Reader's last name], [Book]: ");
                     command = Console.ReadLine().Split(", ");
                     foreach (Reader reader in readers)
                     {
                         if (reader.FirstName.ToLower() == command[0].ToLower())
                         {
-                            foreach (Book bookToReturn in books)
+                            if (reader.LastName.ToLower() == command[1].ToLower())
                             {
-                                if (bookToReturn.Title.ToLower() == command[1].ToLower())
+                                foreach (Book bookToReturn in books)
                                 {
-                                    reader.Return(bookToReturn);
-                                    break;
+                                    if (bookToReturn.Title.ToLower() == command[2].ToLower())
+                                    {
+                                        reader.Return(bookToReturn);
+                                        break;
+                                    }
                                 }
                             }
                             break;
