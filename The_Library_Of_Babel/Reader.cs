@@ -109,11 +109,7 @@ namespace The_Library_Of_Babel
 
         public override string ToString()
         {
-            string output = $"{firstName} {lastName}\nPhone number: {phoneNumber}\nE-mail address: {emailAddress}\n";
-            foreach (Book book in takenBooksArchive) 
-            { 
-                output += $"{book.Title}\n";
-            }
+            string output = $"{firstName} {lastName}\nPhone number: {phoneNumber}\nE-mail address: {emailAddress}\n{string.Join("\n", takenBooksArchive.Select(book => book.Title))}\n";
             return output;
         }
     }
